@@ -26,7 +26,7 @@ def fit_classifier():
 #     y_train = datasets_dict[dataset_name][1]
 #     x_test = datasets_dict[dataset_name][2]
 #     y_test = datasets_dict[dataset_name][3]
-    x_train, x_test, y_train, y_test = train_test_split(X,y,test_size=0.2)
+    x_train, x_test, y_train, y_test = train_test_split(dataset,y,test_size=0.2)
     nb_classes = len(np.unique(np.concatenate((y_train, y_test), axis=0)))
 
     # transform the labels from integers to one hot vectors
