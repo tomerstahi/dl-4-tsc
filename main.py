@@ -14,10 +14,10 @@ from utils.constants import CLASSIFIERS
 from utils.constants import ARCHIVE_NAMES
 from utils.constants import ITERATIONS
 from utils.utils import read_all_datasets
-
+import pickle
 
 def fit_classifier():
-    with open('dat.pkl', 'rb') as f:
+    with open('/content/dat.pkl', 'rb') as f:
         dataset = pickle.load(f)
 #     x_train = datasets_dict[dataset_name][0]
 #     y_train = datasets_dict[dataset_name][1]
