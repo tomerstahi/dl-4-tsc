@@ -15,15 +15,18 @@ from utils.constants import ARCHIVE_NAMES
 from utils.constants import ITERATIONS
 from utils.utils import read_all_datasets
 import pickle
+from sklearn.model_selection import train_test_split
 
 def fit_classifier():
     with open('/content/dat.pkl', 'rb') as f:
         dataset = pickle.load(f)
+    with open('/content/dat.pkl', 'rb') as f:
+        y = pickle.load(f)
 #     x_train = datasets_dict[dataset_name][0]
 #     y_train = datasets_dict[dataset_name][1]
 #     x_test = datasets_dict[dataset_name][2]
 #     y_test = datasets_dict[dataset_name][3]
-
+    x_train, x_test, y_train, y_test = train_test_split(X,y,test_size=0.2)
     nb_classes = len(np.unique(np.concatenate((y_train, y_test), axis=0)))
 
     # transform the labels from integers to one hot vectors
