@@ -17,10 +17,12 @@ from utils.utils import read_all_datasets
 
 
 def fit_classifier():
-    x_train = datasets_dict[dataset_name][0]
-    y_train = datasets_dict[dataset_name][1]
-    x_test = datasets_dict[dataset_name][2]
-    y_test = datasets_dict[dataset_name][3]
+    with open('dat.pkl', 'rb') as f:
+        dataset = pickle.load(f)
+#     x_train = datasets_dict[dataset_name][0]
+#     y_train = datasets_dict[dataset_name][1]
+#     x_test = datasets_dict[dataset_name][2]
+#     y_test = datasets_dict[dataset_name][3]
 
     nb_classes = len(np.unique(np.concatenate((y_train, y_test), axis=0)))
 
@@ -80,7 +82,7 @@ def create_classifier(classifier_name, input_shape, nb_classes, output_directory
 ############################################### main
 
 # change this directory for your machine
-root_dir = '/b/home/uha/hfawaz-datas/dl-tsc-temp/'
+root_dir = '/content/drive/My Drive/cardio-data/model results/latest/'
 
 if sys.argv[1] == 'run_all':
     for classifier_name in CLASSIFIERS:
@@ -89,7 +91,7 @@ if sys.argv[1] == 'run_all':
         for archive_name in ARCHIVE_NAMES:
             print('\tarchive_name', archive_name)
 
-            datasets_dict = read_all_datasets(root_dir, archive_name)
+#             datasets_dict = read_all_datasets(root_dir, archive_name)
 
             for iter in range(ITERATIONS):
                 print('\t\titer', iter)
@@ -147,7 +149,7 @@ else:
     else:
 
         create_directory(output_directory)
-        datasets_dict = read_dataset(root_dir, archive_name, dataset_name)
+#         datasets_dict = read_dataset(root_dir, archive_name, dataset_name)
 
         fit_classifier()
 
