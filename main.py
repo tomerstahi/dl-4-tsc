@@ -20,7 +20,7 @@ from sklearn.model_selection import train_test_split
 def fit_classifier():
     with open('/content/dat.pkl', 'rb') as f:
         dataset = pickle.load(f)
-    with open('/content/dat.pkl', 'rb') as f:
+    with open('/content/labels.pkl', 'rb') as f:
         y = pickle.load(f)
 #     x_train = datasets_dict[dataset_name][0]
 #     y_train = datasets_dict[dataset_name][1]
