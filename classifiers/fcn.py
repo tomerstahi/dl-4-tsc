@@ -45,9 +45,9 @@ class Classifier_FCN:
 		model.compile(loss='categorical_crossentropy', optimizer = keras.optimizers.Adam(), 
 			metrics=['accuracy'])
 
-		reduce_lr = keras.callbacks.ReduceLROnPlateau(monitor='loss', factor=0.5, patience=4, 
+		reduce_lr = keras.callbacks.ReduceLROnPlateau(monitor='loss', factor=0.5, patience=8, 
 			min_lr=0.0001)
-		early_stopping = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=8)
+		early_stopping = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=16)
 
 		file_path = self.output_directory+'best_model.hdf5'
 
