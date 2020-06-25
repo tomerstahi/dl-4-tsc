@@ -18,13 +18,13 @@ import pickle
 from sklearn.model_selection import train_test_split
 
 def fit_classifier():
-    with open('\content\train_data.pkl','rb') as f:
+    with open('/content/train_data.pkl','rb') as f:
         x_train = pickle.load(f)
-    with open('\content\train_labels.pkl','rb') as f:
+    with open('/content/train_labels.pkl','rb') as f:
         y_train = pickle.load(f)
-    with open('\content\test_data.pkl','rb') as f:
+    with open('/content/test_data.pkl','rb') as f:
         x_test = pickle.load(f)
-    with open('\content\test_labels.pkl','rb') as f:
+    with open('/content/test_labels.pkl','rb') as f:
         y_test = pickle.load(f)
 #       x_train = datasets_dict[dataset_name][0]
 #     y_train = datasets_dict[dataset_name][1]
